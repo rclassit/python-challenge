@@ -67,5 +67,13 @@
                   new.write("\n")
                   new.write(f"Greatest Decrease in Profits: {dates[Min]} (${(str(minProfitMonth))})")
 
-Based on analysis: 
-Based on 86 months of P/L data, Total revenue was $38,382,578.00.  Average change was $-2,315.12 M-M.  The Greatest increase in profits M-M occurred in Feb 2012 at $1,926,159.  Greatest Decrease in profits M-M occurred Sep 2013 at $-2,196,167
+Analysis: 
+Based on 86 months of P/L data, Total revenue was $38,382,578.00.  Average change was $-2,315.12 M-M.  The Greatest increase in profits M-M occurred in Feb 2012 at $1,926,159.  Greatest Decrease in profits M-M occurred Sep 2013 at $-2,196,167:
+
+Financial Analysis
+------------------
+Total Months: 86
+Total Revenue : $38382578
+Average Change: $-2315.12
+Greatest Increase in Profits: Feb-2012 ($1926159)
+Greatest Decrease in Profits: Sep-2013 ($-2196167)
