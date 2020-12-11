@@ -44,7 +44,7 @@ Hello I've put together the steps that I've taken in order to complete both the 
     print("------------------")
     print(f"Total Months: {len(dates)}")
     print(f"Total Revenue : ${sum(Profit)}")
-    print(f"Average Change: {round(sum(Change_Profit)/len(Change_Profit),2)}") 
+    print(f"Average Change: ${round(sum(Change_Profit)/len(Change_Profit),2)}") 
     print(f"Greatest Increase in Profits: {dates[Max]} (${(str(maxProfitMonth))})")
     print(f"Greatest Decrease in Profits: {dates[Min]} (${(str(minProfitMonth))})")
     
@@ -61,7 +61,7 @@ Hello I've put together the steps that I've taken in order to complete both the 
                   new.write("\n")
                   new.write(f"Total Revenue : ${sum(Profit)}")
                   new.write("\n")
-                  new.write(f"Average Change: {round(sum(Change_Profit)/len(Change_Profit),2)}")
+                  new.write(f"Average Change: ${round(sum(Change_Profit)/len(Change_Profit),2)}")
                   new.write("\n")
                   new.write(f"Greatest Increase in Profits: {dates[Max]} (${(str(maxProfitMonth))})")
                   new.write("\n")
