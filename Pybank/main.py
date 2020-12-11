@@ -48,7 +48,7 @@ print(f"Greatest Decrease in Profits: {dates[Min]} (${(str(minProfitMonth))})")
 
 #Write up for output
 
-output = os.path.join("Analysis",'outputAnalyis.txt')
+output = os.path.join("Analysis",'outputAnalysis.txt')
 with open(output,"w") as new:
           new.write("Financial Analysis")
           new.write("\n")
