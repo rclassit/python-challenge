@@ -2,10 +2,10 @@
 
 Hello I've put together the steps that I've taken in order to complete both the PyBank and PyPoll homework for the 2nd Homework challenge for the UNC data bootcamp.  I'll go through the steps of how I did the Pybank Challenge:
 
-Pybank:
-          1st step was to import the csv in order to red the csv files and to create the file paths across the operating systems
-          import os
-          import csv
+    Pybank:
+    1st step was to import the csv in order to red the csv files and to create the file paths across the operating systems:
+    import os
+    import csv
     
     Utilized correct CSV path to pull csv from the Resources folder
     csvpath = os.path.join("Resources","budget_data.csv")
@@ -20,7 +20,7 @@ Pybank:
       Profit = []
       Change_Profit[]
       
-      Now we want to append are relevant data with a loop in the csvread:
+      Now we want to append our relevant data with a loop in the csvread:
       for row in csvread:
         #Value iteration
         dates.append(row[0])
@@ -29,7 +29,7 @@ Pybank:
       for i in range(len(Profit)-1):
         Change_Profit.append(Profit[i+1]-Profit[i])
         
-      Now that we've found the true profit change differential with our loops we can define variables to find max and mins:
+    Now that we've found the true profit change differential with our loops, we can define variables with max and mins functions:
     maxProfitMonth = max(Change_Profit)
     minProfitMonth = min(Change_Profit) 
     
@@ -48,7 +48,7 @@ Pybank:
     print(f"Greatest Increase in Profits: {dates[Max]} (${(str(maxProfitMonth))})")
     print(f"Greatest Decrease in Profits: {dates[Min]} (${(str(minProfitMonth))})")
     
-    Note the average change is smply a formula of the sum of P/L monthly differentials divided by # of changes (months) 
+    Note the average change is simply a formula of the sum of P/L monthly differentials divided by # of changes (months) 
     
     and this is the Write up for our text output direct to the Analysis folder:
     output = os.path.join("Analysis",'outputAnalyis.txt')
@@ -66,3 +66,6 @@ Pybank:
                   new.write(f"Greatest Increase in Profits: {dates[Max]} (${(str(maxProfitMonth))})")
                   new.write("\n")
                   new.write(f"Greatest Decrease in Profits: {dates[Min]} (${(str(minProfitMonth))})")
+
+Based on analysis: 
+Based on 86 months of P/L data, Total revenue was $38,382,578.00.  The greatest average change was $-2,315.12 M-M.  The Greatest increase in profits M-M occurred in Feb 2012 at $1,926,159.  Greatest Decrease in profits M-M occurred Sep 2013 at $-2,196,167
