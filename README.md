@@ -1,9 +1,9 @@
 # python-challenge
 
-#Hello I've put together the steps that I've taken in order to complete both the PyBank and PyPoll homework for the 2nd Homework challenge for the UNC data bootcamp.  I'll go #through the steps of how I did the Pybank Challenge:
+# Hello I've put together the steps that I've taken in order to complete both the PyBank and PyPoll homework for the 2nd Homework challenge for the UNC data bootcamp.  I'll go through the steps of how I did the Pybank Challenge:
 
-    #Pybank:
-    #1st step was to import the csv in order to red the csv files and to create the file paths across the operating systems:
+    Pybank:
+    1st step was to import the csv in order to red the csv files and to create the file paths across the operating systems:
     import os
     import csv
     
@@ -20,24 +20,24 @@
       Profit = []
       Change_Profit[]
       
-     # Now we want to append our relevant data with a loop in the csvread:
+   #  Now we want to append our relevant data with a loop in the csvread:
       for row in csvread:
         #Value iteration
         dates.append(row[0])
         Profit.append(int(row[1]))
-      # loop for profit true differential 
+   #  loop for profit true differential 
       for i in range(len(Profit)-1):
         Change_Profit.append(Profit[i+1]-Profit[i])
         
-    #Now that we've found the true profit change differential with our loops, we can define variables with max and mins functions:
+   # Now that we've found the true profit change differential with our loops, we can define variables with max and mins functions:
     maxProfitMonth = max(Change_Profit)
     minProfitMonth = min(Change_Profit) 
     
-    #Using index: 
+   # Using index: 
     Max = Change_Profit.index(maxProfitMonth)+1
     Min = Change_Profit.index(minProfitMonth)+1
     
-    # This will search the list and retrieve our max/min P/L between months
+  #  This will search the list and retrieve our max/min P/L between months
     
    # Now we can begin printing our analysis summary: 
     print("Financial Analysis")
