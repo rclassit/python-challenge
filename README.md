@@ -48,9 +48,9 @@
     print(f"Greatest Increase in Profits: {dates[Max]} (${(str(maxProfitMonth))})")
     print(f"Greatest Decrease in Profits: {dates[Min]} (${(str(minProfitMonth))})")
     
-    #Note the average change is simply a formula of the sum of P/L monthly differentials divided by # of changes (months) 
+  #  Note the average change is simply a formula of the sum of P/L monthly differentials divided by # of changes (months) 
     
-    # and this is the Write up for our text output direct to the Analysis folder:
+  #   and this is the Write up for our text output direct to the Analysis folder:
     output = os.path.join("Analysis",'outputAnalyis.txt')
         with open(output,"w") as new:
                   new.write("Financial Analysis")
