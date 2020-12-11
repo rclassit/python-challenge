@@ -77,3 +77,95 @@ Based on 86 months of P/L data, Total revenue was $38,382,578.00.  Average chang
         Average Change: $-2315.12
         Greatest Increase in Profits: Feb-2012 ($1926159)
         Greatest Decrease in Profits: Sep-2013 ($-2196167)
+       
+#PyPoll 
+#For the Pypoll Challenge I imported dependencies and created a single candidates dictionary: 
+        
+        #import dependencies
+        import os
+        import csv
+
+        #Variables
+        candidates = {}
+
+        #CSV Read
+        election_data_csv = os.path.join("Resources", "election_data.csv")
+        with open(election_data_csv, 'r') as csvfile:
+
+            #Header Info
+            csvread = csv.reader(csvfile, delimiter = ',')
+            header = next(csvread)
+#Looped through the CSVread in order to list candidate vote values:
+            
+            for row in csvread:
+                if row[2] in candidates.keys():
+                    candidates[row[2]]+=1
+                else:
+                    candidates[row[2]] = 1
+#Can list values with candidates variable
+               
+                total = candidates.values()
+#Sum total votes
+                
+                SumVotes = sum(total)
+  
+                candidate_list = candidates.keys(
+#Determining Votes per Candidate
+                    
+                candidate_votes = [f'{(x/SumVotes)*100:.3f}%' for x in candidates.values()]
+ #Determining Winner
+                    
+                Win = list(candidates.keys())[list(candidates.values()).index(max(candidates.values()))]
+                Win
+ 
+ #This is our Print Info: 
+ 
+     print ("Election Results")
+
+    print ("-----------------------------")
+
+    print(f'Total Votes: {int(SumVotes)}')
+
+    print ("-----------------------------")
+#loop to print index
+
+    i = 0 
+    for candidate, vote in candidates.items():
+        print(f'{candidate}: {candidate_votes[i]} ({vote})')
+        i+=1
+
+    print ("------------------------------")
+
+    print(f"Winner: {Win}")
+    
+Lastly, our Output to Analysis Folder: 
+
+#Output to analysis folder 
+
+    output = os.path.join("Analysis",'outputAnalyis.txt')
+    with open(output,"w") as new:
+              new.write("Election Results")
+              new.write("\n")
+              new.write("------------------")
+              new.write("\n")
+              new.write(f"Total Votes:" + str(SumVotes))
+              new.write("\n----------------")
+              i=0
+              for candidate, vote in candidates.items():
+                new.write(f"\n" +str(candidate) +" : " + str(candidate_votes[i]) + "% ("+ str(vote) + ")")
+                i+=1
+              new.write("\n----------------")
+              new.write("\n Winner: "+ str(Win))    
+              
+ Analysis: Out of 3,521,001 total votes, Khan was the winner by (63%) - 2,218,231 votes.  
+
+        Election Results
+        ------------------
+        Total Votes:3521001
+        ----------------
+        Khan : 63.000%% (2218231)
+        Correy : 20.000%% (704200)
+        Li : 14.000%% (492940)
+        O'Tooley : 3.000%% (105630)
+        ----------------
+         Winner: Khan
