@@ -1,16 +1,18 @@
 # python-challenge
 
-# Hello I've put together the steps that I've taken in order to complete both the PyBank and PyPoll homework for the 2nd Homework challenge for the UNC data bootcamp.  I'll go through the steps of how I did the Pybank Challenge:
+Hello I've put together the steps that I've taken in order to complete both the PyBank and PyPoll homework for the 2nd Homework challenge for the UNC data bootcamp.  I'll go through the steps of how I did the Pybank Challenge:
 
     Pybank:
     1st step was to import the csv in order to red the csv files and to create the file paths across the operating systems:
     import os
     import csv
     
-   # Utilized correct CSV path to pull csv from the Resources folder
+   Utilized correct CSV path to pull csv from the Resources folder
+   
     csvpath = os.path.join("Resources","budget_data.csv")
     
-   # Next was open and reading the CSV as well as defining some variables to be used in my analysis: 
+   Next was open and reading the CSV as well as defining some variables to be used in my analysis: 
+    
     with open(csvpath, newline = "") as csvfile:
       csvread = csv.reader(csvfile, delimiter = ",") 
       #Define the header row 
@@ -20,26 +22,31 @@
       Profit = []
       Change_Profit[]
       
-   #  Now we want to append our relevant data with a loop in the csvread:
+   Now we want to append our relevant data with a loop in the csvread:
+      
       for row in csvread:
         #Value iteration
         dates.append(row[0])
         Profit.append(int(row[1]))
-   #  loop for profit true differential 
+   loop for profit true differential 
+      
       for i in range(len(Profit)-1):
         Change_Profit.append(Profit[i+1]-Profit[i])
         
-   # Now that we've found the true profit change differential with our loops, we can define variables with max and mins functions:
+   Now that we've found the true profit change differential with our loops, we can define variables with max and mins functions:
+    
     maxProfitMonth = max(Change_Profit)
     minProfitMonth = min(Change_Profit) 
     
-   # Using index: 
+   Using index: 
+    
     Max = Change_Profit.index(maxProfitMonth)+1
     Min = Change_Profit.index(minProfitMonth)+1
     
-  #  This will search the list and retrieve our max/min P/L between months
+  This will search the list and retrieve our max/min P/L between months
     
-   # Now we can begin printing our analysis summary: 
+   Now we can begin printing our analysis summary: 
+    
     print("Financial Analysis")
     print("------------------")
     print(f"Total Months: {len(dates)}")
@@ -48,9 +55,10 @@
     print(f"Greatest Increase in Profits: {dates[Max]} (${(str(maxProfitMonth))})")
     print(f"Greatest Decrease in Profits: {dates[Min]} (${(str(minProfitMonth))})")
     
-  #  Note the average change is simply a formula of the sum of P/L monthly differentials divided by # of changes (months) 
+  Note the average change is simply a formula of the sum of P/L monthly differentials divided by # of changes (months) 
     
-  #   and this is the Write up for our text output direct to the Analysis folder:
+  and this is the Write up for our text output direct to the Analysis folder:
+    
     output = os.path.join("Analysis",'outputAnalyis.txt')
         with open(output,"w") as new:
                   new.write("Financial Analysis")
@@ -78,8 +86,8 @@ Based on 86 months of P/L data, Total revenue was $38,382,578.00.  Average chang
         Greatest Increase in Profits: Feb-2012 ($1926159)
         Greatest Decrease in Profits: Sep-2013 ($-2196167)
        
-#PyPoll 
-#For the Pypoll Challenge I imported dependencies and created a single candidates dictionary: 
+PyPoll 
+For the Pypoll Challenge I imported dependencies and created a single candidates dictionary: 
         
         #import dependencies
         import os
@@ -95,30 +103,30 @@ Based on 86 months of P/L data, Total revenue was $38,382,578.00.  Average chang
             #Header Info
             csvread = csv.reader(csvfile, delimiter = ',')
             header = next(csvread)
-#Looped through the CSVread in order to list candidate vote values:
+Looped through the CSVread in order to list candidate vote values:
             
             for row in csvread:
                 if row[2] in candidates.keys():
                     candidates[row[2]]+=1
                 else:
                     candidates[row[2]] = 1
-#Can list values with candidates variable
+Can list values with candidates variable
                
                 total = candidates.values()
-#Sum total votes
+Sum total votes
                 
                 SumVotes = sum(total)
   
                 candidate_list = candidates.keys(
-#Determining Votes per Candidate
+Determining Votes per Candidate
                     
                 candidate_votes = [f'{(x/SumVotes)*100:.3f}%' for x in candidates.values()]
- #Determining Winner
+Determining Winner
                     
                 Win = list(candidates.keys())[list(candidates.values()).index(max(candidates.values()))]
                 Win
  
- #This is our Print Info: 
+This is our Print Info: 
  
      print ("Election Results")
 
@@ -127,7 +135,7 @@ Based on 86 months of P/L data, Total revenue was $38,382,578.00.  Average chang
     print(f'Total Votes: {int(SumVotes)}')
 
     print ("-----------------------------")
-#loop to print index
+loop to print index 
 
     i = 0 
     for candidate, vote in candidates.items():
@@ -140,7 +148,7 @@ Based on 86 months of P/L data, Total revenue was $38,382,578.00.  Average chang
     
 Lastly, our Output to Analysis Folder: 
 
-#Output to analysis folder 
+Output to analysis folder 
 
     output = os.path.join("Analysis",'outputAnalyis.txt')
     with open(output,"w") as new:
